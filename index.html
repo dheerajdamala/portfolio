@@ -885,6 +885,10 @@
                         <i class="fas fa-phone"></i>
                         <span>Call</span>
                     </a>
+                    <a href="certificates.html" class="social-link">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificates</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -909,7 +913,7 @@
                             <h3><i class="fas fa-medal"></i> Leadership & Achievements</h3>
                             <ul>
                                 <li>Hostel Affairs Coordinator, driving student welfare initiatives</li>
-                                <li>Active participant in technical projects</li>
+                                <li>Active participant in technical projects and hackathons</li>
                                 <li>Proven track record in problem-solving and team leadership</li>
                             </ul>
                         </div>
@@ -1346,15 +1350,15 @@
 
         // Update active nav dot on scroll
         window.addEventListener('scroll', () => {
-            let current = '';
+            const scrollPosition = window.scrollY || window.pageYOffset;
+            let current = 0;
             sections.forEach((section, index) => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - sectionHeight / 3) {
+                const sectionHeight = section.offsetHeight;
+                if (scrollPosition >= sectionTop - sectionHeight / 3) {
                     current = index;
                 }
             });
-
             navDots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === current);
             });
