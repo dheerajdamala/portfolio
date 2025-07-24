@@ -1378,14 +1378,12 @@
             });
         });
 
-        // Update active nav dot on scroll
+        // Update active nav dot on scroll (improved for mobile)
         window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY || window.pageYOffset;
             let current = 0;
             sections.forEach((section, index) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (scrollPosition >= sectionTop - sectionHeight / 3) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.3 && rect.bottom > window.innerHeight * 0.3) {
                     current = index;
                 }
             });
